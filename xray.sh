@@ -279,30 +279,30 @@ outputVmessLink() {
 	for opt in $xray_inbounds_options; do
 		case $opt in
 			1)
-				link=`echo -n $echo_E_arg '{"add": "'$ip'", "port": '$xray_http_port', "aid": "4", "host": "yaohuo.me", "id": "'$uuid'", "net": "tcp", "path": "/", "ps": "http_'$ip:$xray_http_port'", "tls": "", "type": "http", "v": "2"}'|base64 -w 0`
+				link=`echo -n $echo_E_arg '{"add": "'$ip'", "port": '$xray_http_port', "aid": "0", "host": "pull-hls.free.video.10010.com", "id": "'$uuid'", "net": "tcp", "path": "/", "ps": "http_'$ip:$xray_http_port'", "tls": "", "type": "http", "v": "2"}'|base64 -w 0`
 				echo $echo_e_arg "\033[45;37m\rhttp:\033[0m\n\t\033[4;35mvmess://$link\033[0m"
 			;;
 			2)
-				link=`echo -n $echo_E_arg '{"add": "'$ip'", "port": "'$xray_ws_port'", "aid": "4", "host": "yaohuo.me", "id": "'$uuid'", "net": "ws", "path": "'$xray_ws_path'", "ps": "ws_'$ip:$xray_ws_port'", "tls": "", "type": "none", "v": "2"}'|base64 -w 0`
+				link=`echo -n $echo_E_arg '{"add": "'$ip'", "port": "'$xray_ws_port'", "aid": "0", "host": "pull-hls.free.video.10010.com", "id": "'$uuid'", "net": "ws", "path": "'$xray_ws_path'", "ps": "ws_'$ip:$xray_ws_port'", "tls": "", "type": "none", "v": "2"}'|base64 -w 0`
 				echo $echo_e_arg "\033[45;37m\rws:\033[0m\n\t\033[4;35mvmess://$link\033[0m"
 			;;
 			3)
-				#link=`echo -n $echo_E_arg '{"add": "'$ip'", "port": "'$xray_ws_tls_port'", "aid": "4", "host": "cutebi.taobao69.cn", "id": "'$uuid'", "net": "ws", "path": "'$xray_ws_tls_path'", "ps": "ws+tls_'$ip:$xray_ws_tls_port'", "tls": "cutebi.taobao69.cn", "type": "none", "v": "2"}'|base64 -w 0`
+				#link=`echo -n $echo_E_arg '{"add": "'$ip'", "port": "'$xray_ws_tls_port'", "aid": "0", "host": "cutebi.taobao69.cn", "id": "'$uuid'", "net": "ws", "path": "'$xray_ws_tls_path'", "ps": "ws+tls_'$ip:$xray_ws_tls_port'", "tls": "cutebi.taobao69.cn", "type": "none", "v": "2"}'|base64 -w 0`
 				#echo $echo_e_arg "\033[45;37m\rws+tls:\033[0m\n\t\033[4;35mvmess://$link\033[0m"
-				echo $echo_e_arg "\033[45;37m\rws+tls:\033[0m\n\t\033[4;35mvless://${uuid}@${ip}:${xray_ws_tls_port}?path=${xray_ws_tls_path}&security=tls&encryption=none&host=yaohuo.me&type=ws#ws+tls_${ip}:${xray_ws_tls_port}\033[0m"
+				echo $echo_e_arg "\033[45;37m\rws+tls:\033[0m\n\t\033[4;35mvless://${uuid}@${ip}:${xray_ws_tls_port}?path=${xray_ws_tls_path}&security=tls&encryption=none&host=pull-hls.free.video.10010.com&type=ws#ws+tls_${ip}:${xray_ws_tls_port}\033[0m"
 				
 			;;
 			4)
-				link=`echo -n $echo_E_arg '{"add": "'$ip'", "port": "'$xray_mkcp_port'", "aid": "4", "host": "", "id": "'$uuid'", "net": "kcp", "path": "", "ps": "mkcp_'$ip:$xray_mkcp_port'", "tls": "", "type": "utp", "v": "2"}'|base64 -w 0`
+				link=`echo -n $echo_E_arg '{"add": "'$ip'", "port": "'$xray_mkcp_port'", "aid": "0", "host": "", "id": "'$uuid'", "net": "kcp", "path": "", "ps": "mkcp_'$ip:$xray_mkcp_port'", "tls": "", "type": "utp", "v": "2"}'|base64 -w 0`
 				echo $echo_e_arg "\033[45;37m\rmkcp:\033[0m\n\t\033[4;35mvmess://$link\033[0m"
 			;;
 			5)
-				#link=`echo -n $echo_E_arg '{"add": "'$ip'", "port": "'$xray_mkcp_xtls_port'", "aid": "4", "host": "", "id": "'$uuid'", "net": "kcp", "path": "", "ps": "mkcp_'$ip:$xray_mkcp_xtls_port'", "tls": "tls", "host": "yaohuo.me", "type": "utp", "v": "2"}'|base64 -w 0`
+				#link=`echo -n $echo_E_arg '{"add": "'$ip'", "port": "'$xray_mkcp_xtls_port'", "aid": "0", "host": "", "id": "'$uuid'", "net": "kcp", "path": "", "ps": "mkcp_'$ip:$xray_mkcp_xtls_port'", "tls": "tls", "host": "pull-hls.free.video.10010.com", "type": "utp", "v": "2"}'|base64 -w 0`
 				#echo $echo_e_arg "\033[45;37m\rmkcp+tls:\033[0m\n\t\033[4;35mvmess://$link\033[0m"
 				echo $echo_e_arg "\033[45;37m\rmkcp+xtls:\033[0m\n\t\033[4;35mvless://${uuid}@${ip}:${xray_mkcp_xtls_port}?security=xtls&encryption=none&headerType=none&type=kcp&flow=xtls-rprx-direct#mkcp+xtls_${ip}:${xray_mkcp_xtls_port}\033[0m"
 			;;
 			6)
-				echo $echo_e_arg "\033[45;37m\rtcp+tls:\033[0m\n\t\033[4;35mvless://${uuid}@${ip}:${xray_tcp_xtls_port}?security=xtls&encryption=none&host=yaohuo.me&headerType=none&type=tcp&flow=xtls-rprx-direct#tcp+xtls_${ip}:${xray_tcp_xtls_port}\033[0m"
+				echo $echo_e_arg "\033[45;37m\rtcp+tls:\033[0m\n\t\033[4;35mvless://${uuid}@${ip}:${xray_tcp_xtls_port}?security=xtls&encryption=none&host=pull-hls.free.video.10010.com&headerType=none&type=tcp&flow=xtls-rprx-direct#tcp+xtls_${ip}:${xray_tcp_xtls_port}\033[0m"
 			;;
 		esac
 	done
